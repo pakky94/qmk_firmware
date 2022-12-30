@@ -19,3 +19,7 @@
 #define HOME_E RSFT_T(KC_E)
 #define HOME_I LALT_T(KC_I)
 #define HOME_O RGUI_T(KC_O)
+
+// Layer toggle + backspace/enter
+#define L_UP LT(1, KC_BSPC)
+#define L_DN LT(2, KC_ENT)
