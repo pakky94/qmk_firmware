@@ -17,13 +17,13 @@
 #include QMK_KEYBOARD_H
 
 enum layer_names {
-  _QWERTY,
-  _LOWER,
-  _RAISE,
-  _ADJUST,
-  _GAMING_LO,
-  _GAMING_HI,
-  _MOVEMENT
+    _QWERTY,
+    _LOWER,
+    _RAISE,
+    _ADJUST,
+    _GAMING_LO,
+    _GAMING_HI,
+    _MOVEMENT
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -37,7 +37,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, KC_TILD, KC_BSPC, KC_CIRC, KC_AMPR,    KC_ASTR,    KC_LPRN, KC_RPRN,
         KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_DEL,  KC_PIPE, KC_UNDS,    KC_PLUS,    KC_LCBR, KC_RCBR,
         KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  _______, _______, S(KC_NUHS), S(KC_NUBS), KC_HOME, KC_END,
-        TO(4),   _______, _______, TO(6),   _______, _______, _______, _______, KC_MNXT,    KC_VOLD,    KC_VOLU, KC_MPLY
+        _______, _______, TO(4),   TO(6),   _______, _______, _______, _______, KC_MNXT,    KC_VOLD,    KC_VOLU, KC_MPLY
     ),
     [_RAISE] = LAYOUT_ortho_4x12(
         KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_GRV,  KC_BSPC, KC_6,    KC_7,    KC_8,    KC_9,    KC_0,
@@ -64,13 +64,29 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         TO(0),   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
     ),
     [_MOVEMENT] = LAYOUT_ortho_4x12(
-        _______, _______, KC_UP,   _______, _______, _______, _______, _______, _______, KC_UP,   _______, DB_TOGG,
-        _______, KC_LEFT, KC_DOWN, KC_RGHT, _______, _______, _______, _______, KC_LEFT, KC_DOWN, KC_RGHT, _______,
-        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+        _______, _______, KC_UP,   _______, _______, _______, _______, KC_WH_U, KC_BTN1, KC_MS_U, KC_BTN2, DB_TOGG,
+        _______, KC_LEFT, KC_DOWN, KC_RGHT, _______, _______, _______, KC_BTN3, KC_MS_L, KC_MS_D, KC_MS_R, _______,
+        _______, _______, _______, _______, _______, _______, _______, KC_WH_D, KC_ACL0, KC_ACL1, KC_ACL2, _______,
         TO(0),   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
     )
 };
 
 layer_state_t layer_state_set_user(layer_state_t state) {
-  return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
+    return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
+}
+
+bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
+    if (host_keyboard_led_state().caps_lock) {
+        rgb_matrix_set_color(CAPS_INDICATOR_LED, CAPS_INDICATOR_COLOR);
+    }
+
+    if (layer_state_is(_GAMING_LO)) {
+        rgb_matrix_set_color(GAMING_INDICATOR_LED, GAMING_INDICATOR_COLOR);
+    }
+
+    if (layer_state_is(_MOVEMENT)) {
+        rgb_matrix_set_color(MOVEMENT_INDICATOR_LED, MOVEMENT_INDICATOR_COLOR);
+    }
+
+    return false;
 }
