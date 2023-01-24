@@ -21,5 +21,6 @@ RGB_MATRIX_DRIVER = WS2812
 AUDIO_ENABLE = no           # Audio output
 AUDIO_SUPPORTED = no
 KEY_LOCK_ENABLE = no
+CAPS_WORD_ENABLE = yes
 
 LAYOUTS = ortho_4x12
