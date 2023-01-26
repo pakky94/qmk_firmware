@@ -23,4 +23,4 @@ AUDIO_SUPPORTED = no
 KEY_LOCK_ENABLE = no
 CAPS_WORD_ENABLE = yes
 
-LAYOUTS = ortho_4x12
+LAYOUTS = ortho_4x12 split_3x5_2

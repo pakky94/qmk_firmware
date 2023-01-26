@@ -32,11 +32,11 @@ enum layer_names {
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    [_QWERTY] = LAYOUT_ortho_4x12(
-        KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,    _______, _______, KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN,
-        HOME_A,  HOME_R,  HOME_S,  HOME_T,  KC_G,    _______, _______, KC_M,    HOME_N,  HOME_E,  HOME_I,  HOME_O,
-        KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,    _______, _______, KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH,
-        _______, _______, _______, _______, L_UP,    SPC_FN,  SPC_FN,  L_DN,    _______, _______, _______, _______
+    [_QWERTY] = LAYOUT_split_3x5_2(
+        KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,                      KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN,
+        HOME_A,  HOME_R,  HOME_S,  HOME_T,  KC_G,                      KC_M,    HOME_N,  HOME_E,  HOME_I,  HOME_O,
+        KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,                      KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH,
+                                            L_UP,   SPC_FN,   SPC_FN,  L_DN
     ),
     [_NM] = LAYOUT_ortho_4x12(
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
