@@ -16,6 +16,19 @@
 #define MOUSEKEY_DECELERATED_SPEED 600
 #define MOUSEKEY_ACCELERATED_SPEED 4000
 
+#define _BS 0
+#define _NM 1
+#define _LO 2
+#define _RA 3
+#define _FN 4
+#define _AD 5
+#define _GL 6
+#define _GH 7
+#define _ML 8
+#define _MH 9
+#define _OS 10
+#define _NP 11
+
 // Left-hand home row mods
 #define HOME_A LGUI_T(KC_A)
 #define HOME_R LALT_T(KC_R)
