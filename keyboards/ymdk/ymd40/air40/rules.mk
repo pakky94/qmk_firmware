@@ -22,5 +22,6 @@ AUDIO_ENABLE = no           # Audio output
 AUDIO_SUPPORTED = no
 KEY_LOCK_ENABLE = no
 CAPS_WORD_ENABLE = yes
+COMBO_ENABLE = yes
 
 LAYOUTS = ortho_4x12 split_3x5_2

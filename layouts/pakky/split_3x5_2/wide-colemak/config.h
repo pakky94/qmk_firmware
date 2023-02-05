@@ -26,8 +26,8 @@
 #define _GH 7
 #define _ML 8
 #define _MH 9
-#define _OS 10
-#define _NP 11
+#define _NP 10
+#define _OS 11
 
 // Left-hand home row mods
 #define HOME_A LGUI_T(KC_A)
@@ -49,3 +49,5 @@
 
 #define OLED_TIMEOUT 120000
 #define OLED_BRIGHTNESS 120
+
+#define COMBO_COUNT 4

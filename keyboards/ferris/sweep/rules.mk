@@ -17,9 +17,11 @@ BACKLIGHT_ENABLE = no       # Enable keyboard backlight functionality
 RGBLIGHT_ENABLE = no        # Enable keyboard RGB underglow
 UNICODE_ENABLE = yes        # Unicode
 AUDIO_ENABLE = no           # Audio output
-CAPS_WORD_ENABLE = yes
 SPLIT_KEYBOARD = yes        # Use shared split_common code
 LAYOUTS = split_3x5_2
+
+CAPS_WORD_ENABLE = yes
+COMBO_ENABLE = yes
 
 LTO_ENABLE = yes
 

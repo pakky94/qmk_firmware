@@ -33,7 +33,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, _______, _______, _______, _______,                   KC_SLSH, KC_7,    KC_8,    KC_9,    KC_MINS,
         KC_ESC,  KC_TAB,  _______, _______, _______,                   KC_ASTR, KC_4,    KC_5,    KC_6,    KC_PLUS,
         KC_DEL,  KC_RALT, CW_TOGG, _______, _______,                   KC_DOT,  KC_1,    KC_2,    KC_3,    KC_ENT,
-                                            _______, DF(_BS), DF(_BS), KC_0
+                                            _______, _______, _______, KC_0
     ),
     [_RA] = LAYOUT_split_3x5_2(
         KC_UNDS, KC_PLUS, KC_LPRN, KC_RPRN, _______,                   KC_BSLS, KC_AMPR, KC_ASTR, _______, KC_GRV,
@@ -51,7 +51,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         QK_BOOT, RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI,                   _______, _______, KC_UP,   _______, _______,
         _______, RGB_MOD, RGB_HUD, RGB_SAD, RGB_VAD,                   _______, KC_LEFT, KC_DOWN, KC_RGHT, _______,
         _______, BL_TOGG, BL_DOWN, BL_UP,   BL_BRTG,                   _______, KC_MNXT, KC_VOLD, KC_VOLU, KC_MPLY,
-                                            _______, TO(_BS), TO(_BS), _______
+                                            _______, _______, _______, _______
     ),
     [_GL] = LAYOUT_split_3x5_2(
         KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,                      _______, _______, KC_UP,   _______, _______,
@@ -63,7 +63,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                      _______, _______, KC_UP,   _______, _______,
         _______, _______, _______, _______, _______,                   _______, KC_LEFT, KC_DOWN, KC_RGHT, _______,
         _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______,
-                                            _______, DF(_BS), DF(_BS), _______
+                                            _______, _______, _______, _______
     ),
     [_ML] = LAYOUT_split_3x5_2(
         KC_WH_U, KC_BTN1, KC_UP,   KC_BTN2, _______,                   KC_WH_U, KC_BTN1, KC_MS_U, KC_BTN2, _______,
@@ -75,21 +75,35 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, _______, KC_MS_U, _______, _______,                   _______, _______, _______, _______, _______,
         _______, KC_MS_L, KC_MS_D, KC_MS_R, _______,                   _______, _______, _______, _______, _______,
         _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______,
-                                            _______, DF(_BS), DF(_BS), _______
-    ),
-    [_OS] = LAYOUT_split_3x5_2(
-        _______, _______, _______, _______, _______,                   TO(_AD), DF(_GL), DF(_ML), DF(_NM), _______,
-        CW_TOGG, _______, _______, _______, _______,                   _______, _______, _______, _______, DF(_NP),
-        KC_CAPS, _______, _______, _______, _______,                   _______, _______, _______, _______, _______,
-                                            _______, TO(_BS), TO(_BS), _______
+                                            _______, _______, _______, _______
     ),
     [_NP] = LAYOUT_split_3x5_2(
         KC_ESC,  _______, KC_UP,   _______, _______,                   KC_SLSH, KC_7,    KC_8,    KC_9,    KC_MINS,
         KC_TAB,  KC_LEFT, KC_DOWN, KC_RGHT, _______,                   KC_ASTR, KC_4,    KC_5,    KC_6,    KC_PLUS,
         _______, _______, _______, _______, _______,                   KC_DOT,  KC_1,    KC_2,    KC_3,    KC_ENT,
-                                            _______, DF(_BS), DF(_BS), KC_0
+                                            KC_SPC,  _______, _______, KC_0
+    ),
+    [_OS] = LAYOUT_split_3x5_2(
+        _______, _______, _______, _______, _______,                   DF(_AD), DF(_GL), DF(_ML), DF(_NM), _______,
+        CW_TOGG, _______, _______, _______, _______,                   _______, DF(_BS), _______, _______, DF(_NP),
+        KC_CAPS, _______, _______, _______, _______,                   _______, _______, _______, _______, _______,
+                                            _______, _______, _______, _______
     )
 };
+
+
+const uint16_t PROGMEM oneshot_layer0[] = {L_UP, L_DN, COMBO_END};
+const uint16_t PROGMEM oneshot_layer1[] = {MO(_GH), L_DN, COMBO_END};
+const uint16_t PROGMEM oneshot_layer2[] = {MO(_MH), L_DN, COMBO_END};
+const uint16_t PROGMEM oneshot_layer3[] = {KC_SPC, KC_0, COMBO_END};
+
+combo_t key_combos[COMBO_COUNT] = {
+    [0] = COMBO(oneshot_layer0, OSL(_OS)),
+    [1] = COMBO(oneshot_layer1, OSL(_OS)),
+    [2] = COMBO(oneshot_layer2, OSL(_OS)),
+    [3] = COMBO(oneshot_layer3, OSL(_OS)),
+};
+
 
 #ifdef KEYBOARD_ymdk_ymd40_air40
     bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
