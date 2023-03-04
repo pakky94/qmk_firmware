@@ -39,6 +39,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /* Locking resynchronize hack */
 #define LOCKING_RESYNC_ENABLE
 
+#define RGBLED_NUM 9
+#define RGB_DI_PIN D3
+
 /*
  * Feature disable options
  *  These options are also useful to firmware size reduction.
