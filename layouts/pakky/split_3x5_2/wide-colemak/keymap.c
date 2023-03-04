@@ -17,17 +17,23 @@
 #include QMK_KEYBOARD_H
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    [_BS] = LAYOUT_split_3x5_2(
+    [_CM] = LAYOUT_split_3x5_2(
         KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,                      KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN,
-        HOME_A,  HOME_R,  HOME_S,  HOME_T,  KC_G,                      KC_M,    HOME_N,  HOME_E,  HOME_I,  HOME_O,
+        A_LGUI,  R_LALT,  S_LSFT,  T_LCTL,  KC_G,                      KC_M,    N_LCTL,  E_RSFT,  I_LALT,  O_RGUI,
         KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,                      KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH,
-                                            L_UP,    SPC_FN,  SPC_FN,  L_DN
+                                            L_DN,    SPC_FN,  SPC_FN,  L_UP
     ),
     [_NM] = LAYOUT_split_3x5_2(
         _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______,
         KC_A,    KC_R,    KC_S,    KC_T,    _______,                   _______, KC_N,    KC_E,    KC_I,    KC_O,
         _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______,
                                             _______, KC_SPC,  KC_SPC,  _______
+    ),
+    [_QW] = LAYOUT_split_3x5_2(
+        KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                      KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,
+        A_LGUI,  S_LALT,  D_LSFT,  F_LCTL,  KC_G,                      KC_H,    J_LCTL,  K_RSFT,  L_LALT,  SCLN_RGUI,
+        KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                      KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,
+                                            L_DN,    SPC_FN,  SPC_FN,  L_UP
     ),
     [_LO] = LAYOUT_split_3x5_2(
         _______, _______, _______, _______, _______,                   KC_SLSH, KC_7,    KC_8,    KC_9,    KC_MINS,
@@ -57,7 +63,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,                      _______, _______, KC_UP,   _______, _______,
         KC_LCTL, KC_A,    KC_S,    KC_D,    KC_F,                      _______, KC_LEFT, KC_DOWN, KC_RGHT, _______,
         KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,                      _______, _______, _______, _______, _______,
-                                            MO(_GH), _______, _______, _______
+                                            MO(_GH), KC_SPC,  KC_SPC,  _______
     ),
     [_GH] = LAYOUT_split_3x5_2(
         KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                      _______, _______, KC_UP,   _______, _______,
@@ -85,16 +91,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
     [_OS] = LAYOUT_split_3x5_2(
         _______, _______, _______, _______, _______,                   DF(_AD), DF(_GL), DF(_ML), DF(_NM), _______,
-        CW_TOGG, _______, _______, _______, _______,                   _______, DF(_BS), _______, _______, DF(_NP),
+        CW_TOGG, _______, _______, _______, _______,                   DF(_QW), DF(_CM), _______, _______, DF(_NP),
         KC_CAPS, _______, _______, _______, _______,                   _______, _______, _______, _______, _______,
                                             _______, _______, _______, _______
     )
 };
 
-
-const uint16_t PROGMEM oneshot_layer0[] = {L_UP, L_DN, COMBO_END};
-const uint16_t PROGMEM oneshot_layer1[] = {MO(_GH), L_DN, COMBO_END};
-const uint16_t PROGMEM oneshot_layer2[] = {MO(_MH), L_DN, COMBO_END};
+const uint16_t PROGMEM oneshot_layer0[] = {L_DN, L_UP, COMBO_END};
+const uint16_t PROGMEM oneshot_layer1[] = {MO(_GH), L_UP, COMBO_END};
+const uint16_t PROGMEM oneshot_layer2[] = {MO(_MH), L_UP, COMBO_END};
 const uint16_t PROGMEM oneshot_layer3[] = {KC_SPC, KC_0, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {

@@ -16,35 +16,45 @@
 #define MOUSEKEY_DECELERATED_SPEED 600
 #define MOUSEKEY_ACCELERATED_SPEED 4000
 
-#define _BS 0
+#define _CM 0
 #define _NM 1
-#define _LO 2
-#define _RA 3
-#define _FN 4
-#define _AD 5
-#define _GL 6
-#define _GH 7
-#define _ML 8
-#define _MH 9
-#define _NP 10
-#define _OS 11
+#define _QW 2
+#define _LO 3
+#define _RA 4
+#define _FN 5
+#define _AD 6
+#define _GL 7
+#define _GH 8
+#define _ML 9
+#define _MH 10
+#define _NP 11
+#define _OS 12
 
 // Left-hand home row mods
-#define HOME_A LGUI_T(KC_A)
-#define HOME_R LALT_T(KC_R)
-#define HOME_S LSFT_T(KC_S)
-#define HOME_T LCTL_T(KC_T)
+#define A_LGUI LGUI_T(KC_A)
+#define R_LALT LALT_T(KC_R)
+#define S_LSFT LSFT_T(KC_S)
+#define T_LCTL LCTL_T(KC_T)
 
 // Right-hand home row mods
-#define HOME_N RCTL_T(KC_N)
-#define HOME_E RSFT_T(KC_E)
-#define HOME_I LALT_T(KC_I)
-#define HOME_O RGUI_T(KC_O)
+#define N_LCTL RCTL_T(KC_N)
+#define E_RSFT RSFT_T(KC_E)
+#define I_LALT LALT_T(KC_I)
+#define O_RGUI RGUI_T(KC_O)
+
+// QWERTY home row mods
+#define S_LALT LALT_T(KC_S)
+#define D_LSFT LSFT_T(KC_D)
+#define F_LCTL LCTL_T(KC_F)
+#define J_LCTL RCTL_T(KC_J)
+#define K_RSFT RSFT_T(KC_K)
+#define L_LALT LALT_T(KC_L)
+#define SCLN_RGUI RGUI_T(KC_SCLN)
 
 // Layer toggle + backspace/enter
-#define L_UP LT(2, KC_BSPC)
-#define L_DN LT(3, KC_ENT)
-#define SPC_FN LT(4, KC_SPC)
+#define L_DN LT(_LO, KC_BSPC)
+#define L_UP LT(_RA, KC_ENT)
+#define SPC_FN LT(_FN, KC_SPC)
 
 
 #define OLED_TIMEOUT 120000
