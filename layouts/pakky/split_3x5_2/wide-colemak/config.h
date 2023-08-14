@@ -61,3 +61,5 @@
 #define OLED_BRIGHTNESS 120
 
 #define COMBO_COUNT 4
+
+#define COMBO_ONLY_FROM_LAYER 0

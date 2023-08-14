@@ -97,16 +97,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     )
 };
 
-const uint16_t PROGMEM oneshot_layer0[] = {L_DN, L_UP, COMBO_END};
-const uint16_t PROGMEM oneshot_layer1[] = {MO(_GH), L_UP, COMBO_END};
-const uint16_t PROGMEM oneshot_layer2[] = {MO(_MH), L_UP, COMBO_END};
-const uint16_t PROGMEM oneshot_layer3[] = {KC_SPC, KC_0, COMBO_END};
+const uint16_t PROGMEM oneshot_layer[] = {L_DN, L_UP, COMBO_END};
+const uint16_t PROGMEM copy_combo[] =    {KC_X, KC_C, COMBO_END};
+const uint16_t PROGMEM paste_combo[] =   {KC_C, KC_D, COMBO_END};
+const uint16_t PROGMEM cut_combo[] =     {KC_Z, KC_C, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
-    [0] = COMBO(oneshot_layer0, OSL(_OS)),
-    [1] = COMBO(oneshot_layer1, OSL(_OS)),
-    [2] = COMBO(oneshot_layer2, OSL(_OS)),
-    [3] = COMBO(oneshot_layer3, OSL(_OS)),
+    [0] = COMBO(oneshot_layer, OSL(_OS)),
+    [1] = COMBO(copy_combo, LCTL(KC_C)),
+    [2] = COMBO(paste_combo, LCTL(KC_V)),
+    [3] = COMBO(cut_combo, LCTL(KC_X)),
 };
 
 
