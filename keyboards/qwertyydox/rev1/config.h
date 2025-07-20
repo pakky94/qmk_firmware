@@ -24,6 +24,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define MOUSEKEY_WHEEL_MAX_SPEED   8
 #define MOUSEKEY_WHEEL_TIME_TO_MAX 40
 
+#define RGBLED_NUM 9
+#define RGB_DI_PIN D3
+
 /*
  * Feature disable options
  *  These options are also useful to firmware size reduction.

@@ -7,12 +7,19 @@ EXTRAKEY_ENABLE = yes       # Audio control and System control
 CONSOLE_ENABLE = no         # Console for debug
 COMMAND_ENABLE = no         # Commands for debug and configuration
 NKRO_ENABLE = no            # Enable N-Key Rollover
-BACKLIGHT_ENABLE = no      # Enable keyboard backlight functionality
-RGBLIGHT_ENABLE = no
-RGBLIGHT_SUPPORTED = no
-AUDIO_SUPPORTED = no
-KEY_LOCK_ENABLE = no
+BACKLIGHT_ENABLE = no       # Enable keyboard backlight functionality
+RGBLIGHT_ENABLE = no        # Enable keyboard RGB underglow
+UNICODE_ENABLE = yes        # Unicode
+AUDIO_ENABLE = no           # Audio output
+SPLIT_KEYBOARD = yes        # Use shared split_common code
+LAYOUTS = split_3x5_2
+
 CAPS_WORD_ENABLE = yes
 COMBO_ENABLE = yes
 
-LAYOUTS = ortho_4x12 split_3x5_2
+LTO_ENABLE = yes
+
+#WPM_ENABLE = yes
+#OLED_ENABLE = yes
+#OLED_DRIVER = SSD1306
+#CONSOLE_ENABLE = yes
