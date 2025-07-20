@@ -21,19 +21,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,                      KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN,
         A_LGUI,  R_LALT,  S_LSFT,  T_LCTL,  KC_G,                      KC_M,    N_LCTL,  E_RSFT,  I_LALT,  O_RGUI,
         KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,                      KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH,
-                                            L_DN,    SPC_FN,  SPC_FN,  L_UP
+                                            L_DN,    SPC_SS,  SPC_FN,  L_UP
     ),
     [_NM] = LAYOUT_split_3x5_2(
         _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______,
         KC_A,    KC_R,    KC_S,    KC_T,    _______,                   _______, KC_N,    KC_E,    KC_I,    KC_O,
         _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______,
-                                            _______, KC_SPC,  KC_SPC,  _______
+                                            _______, OS_LSFT, KC_SPC,  _______
     ),
     [_QW] = LAYOUT_split_3x5_2(
         KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                      KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,
         A_LGUI,  S_LALT,  D_LSFT,  F_LCTL,  KC_G,                      KC_H,    J_LCTL,  K_RSFT,  L_LALT,  SCLN_RGUI,
         KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                      KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,
-                                            L_DN,    SPC_FN,  SPC_FN,  L_UP
+                                            L_DN,    SPC_SS,  SPC_FN,  L_UP
     ),
     [_LO] = LAYOUT_split_3x5_2(
         _______, _______, _______, _______, _______,                   KC_SLSH, KC_7,    KC_8,    KC_9,    KC_MINS,
@@ -408,6 +408,14 @@ bool oled_task_user(void) {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
+        case SPC_SS:
+            if (record->tap.count > 0) {
+                if (record->event.pressed) {
+                    set_oneshot_mods(MOD_LSFT);
+                }
+                return false;
+            }
+            break;
 #ifdef OLED_ENABLE
             /* KEYBOARD PET STATUS START */
         case KC_LCTL:

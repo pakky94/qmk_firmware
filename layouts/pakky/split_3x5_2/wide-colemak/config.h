@@ -52,7 +52,7 @@
 #define L_DN LT(_LO, KC_BSPC)
 #define L_UP LT(_RA, KC_ENT)
 #define SPC_FN LT(_FN, KC_SPC)
-
+#define SPC_SS LT(_FN, KC_F24)
 
 #define OLED_TIMEOUT 120000
 #define OLED_BRIGHTNESS 120
